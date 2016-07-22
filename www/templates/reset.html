@@ -1,0 +1,57 @@
+<ion-view title="Reset">
+
+<div> <!-- side menus -->
+				<ion-side-menus enable-menu-with-back-views="true">
+						<ion-side-menu-content>
+								<ion-nav-bar class="bar-calm">
+										<ion-nav-buttons side="left">
+												<button class="button button-icon button-clear ion-navicon" menu-toggle="left"> </button>
+										</ion-nav-buttons>
+								</ion-nav-bar>  
+
+
+								<ion-content padding="true" class="has-header">
+									<div ng-controller="reset">
+										<ion-list>
+												<h5>Please provide your email so we may send you password reset instructions</h5>
+													<label class="item item-input">
+														<span class="input-label">Email</span>
+														<input type="email" placeholder="Enter Email" ng-model="email">
+													</label>
+												<button type="submit" class="button button-stable button-block" ng-click="resetPassword()">Submit</button>
+										</ion-list>      
+									</div>
+								</ion-content>
+							</ion-side-menu-content>
+
+							<ion-side-menu side="left">
+									<ion-header-bar class="bar-calm">
+											<h1 class="title">Menu</h1>
+									</ion-header-bar>
+									<ion-content>
+											<ion-list>
+													<ion-item menu-close href="#/signin">
+															Login
+													</ion-item>
+													<ion-item menu-close href="#/signup">
+															Sign Up
+													</ion-item>
+													<ion-item menu-close href="#/userlist">
+															Userlist
+													</ion-item>
+													<ion-item menu-close button type="submit" ng-controller="logout" ng-click="logout()">
+															Logout
+													</ion-item>
+													<ion-item menu-close href="#/reset">
+															Reset 
+													</ion-item>
+													<ion-item menu-close href="#/print">
+															Print Text
+													</ion-item>
+											</ion-list>
+									</ion-content>
+							</ion-side-menu>
+					</ion-side-menus> <!-- end of side menus -->
+			</div>  
+</ion-view>
+

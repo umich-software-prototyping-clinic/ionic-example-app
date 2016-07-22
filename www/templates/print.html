@@ -1,0 +1,56 @@
+<ion-view title="Reset Password">
+
+	<div> <!-- side menus -->
+		<ion-side-menus enable-menu-with-back-views="true">
+			<ion-side-menu-content>
+				<ion-nav-bar class="bar-calm">
+					<ion-nav-buttons side="left">
+						<button class="button button-icon button-clear ion-navicon" menu-toggle="left"> </button>
+					</ion-nav-buttons>
+				</ion-nav-bar>  
+
+				<ion-content padding="true" class="has-header">
+					<form>
+						<div ng-controller="print">
+							<ion-list>
+								<label class="item item-input">
+									<span class="input-label" ng-show="show_content"> {{ printedText }} </span>
+									<input type="text" placeholder="Type your text" ng-model="printedText">
+								</label>
+								<button type="submit" class="button button-stable button-block" ng-click="print()">Press to Print</button>
+							</ion-list>  
+						</div>
+					</form>
+				</ion-content>
+			</ion-side-menu-content>
+
+			<ion-side-menu side="left">
+				<ion-header-bar class="bar-calm">
+					<h1 class="title">Menu</h1>
+				</ion-header-bar>
+				<ion-content>
+					<ion-list>
+						<ion-item menu-close href="#/signin">
+							Login
+						</ion-item>
+						<ion-item menu-close href="#/signup">
+							Sign Up
+						</ion-item>
+						<ion-item menu-close href="#/userlist">
+							Userlist
+						</ion-item>
+						<ion-item menu-close button type="submit" ng-controller="logout" ng-click="logout()">
+							Logout
+						</ion-item>
+						<ion-item menu-close href="#/reset">
+							Reset 
+						</ion-item>
+						<ion-item menu-close href="#/print">
+							Print Text
+						</ion-item>
+					</ion-list>
+				</ion-content>
+			</ion-side-menu>
+		</ion-side-menus> <!-- end of side menus -->
+	</div>  
+</ion-view>
