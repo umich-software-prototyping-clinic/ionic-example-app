@@ -191,6 +191,8 @@ app
   }
   $scope.logout = function () {
     ParseSvc.logout(logoutCallback);
+
+
    
   }
 
