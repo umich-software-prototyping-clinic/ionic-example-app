@@ -15,7 +15,6 @@
 							<h4 class ng-show="!isUser()"> Welcome! You are not signed in! </h4>
 						</div>
 					</ion-content>
-
 			</ion-side-menu-content>
 
 <!-- If you want tabs in the bottom, uncomment this -->
@@ -34,40 +33,39 @@
 				</ion-tab>
 
 			</ion-tabs> -->
-
-		
+			
 			<ion-side-menu side="left">
 				<ion-header-bar class="bar-calm">
-					<h1 class="title">Menu</h1>
+					<h1 class="title"> Menu </h1>
 				</ion-header-bar>
 					<ion-content>
 						<ion-list>
+							<ion-item menu-close href= "#welcome">
+								Back to Main
+							</ion-item>
 							<ion-item menu-close href="#/signin">
 								Login
 							</ion-item>
 							<ion-item menu-close href="#/signup">
-							Sign Up
+								Sign Up
 							</ion-item>
 							<ion-item menu-close href="#/userlist">
-							Userlist
+								Userlist
 							</ion-item>
 							<ion-item menu-close button type="submit" ng-controller="logout" ng-click="logout()">
-							Logout
+								Logout
 							</ion-item>
 							<ion-item menu-close href="#/reset">
-							Reset 
+								Reset 
 							</ion-item>
 							<ion-item menu-close href="#/print">
-							Print Text
+								Print Text
 							</ion-item>
-
-
 						</ion-list>
 					</ion-content>
 			</ion-side-menu>
 		</ion-side-menus>
 	</div>  <!-- end of side menus -->
-
 </ion-view>
 
 

@@ -64,6 +64,7 @@ app
     controller: 'print'
   });
  
+ 
   $urlRouterProvider.otherwise('/');
  
 })
@@ -190,7 +191,9 @@ app
   }
   $scope.logout = function () {
     ParseSvc.logout(logoutCallback);
+   
   }
+
 
 }])
 
@@ -269,6 +272,8 @@ app
       user = Parse.User.current(); 
       isRegistered = false;
       sucessCallback();
+
+
     },
     getUsers: function(sucessCallback) {
       var user_query = new Parse.Query(Parse.User);
