@@ -22,6 +22,7 @@ app
       StatusBar.styleDefault();
     }
 
+    //PARSE
     //Must initialize Parse in .run
     Parse.initialize("zWsNP9c7MIKltLBGUsROBnSgNX3FMuF88DrZGLM9", "dgJnaETT3dw1lBZOdFLylMubbwx0luSkxUCrS2Bh");
     //App id , JavaScript id
