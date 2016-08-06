@@ -7,7 +7,13 @@ var app = angular.module('starter', ['ionic'])
 
 app
 .run(function($ionicPlatform) {
+  //PARSE
+  //Must initialize Parse in .run
+  Parse.initialize("zWsNP9c7MIKltLBGUsROBnSgNX3FMuF88DrZGLM9", "dgJnaETT3dw1lBZOdFLylMubbwx0luSkxUCrS2Bh");
+  //App id , JavaScript id
+  
   $ionicPlatform.ready(function() {
+
     if(window.cordova && window.cordova.plugins.Keyboard) {
       // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
       // for form inputs)
@@ -21,11 +27,7 @@ app
     if(window.StatusBar) {
       StatusBar.styleDefault();
     }
-
-    //PARSE
-    //Must initialize Parse in .run
-    Parse.initialize("zWsNP9c7MIKltLBGUsROBnSgNX3FMuF88DrZGLM9", "dgJnaETT3dw1lBZOdFLylMubbwx0luSkxUCrS2Bh");
-    //App id , JavaScript id
+    
 
 
   });
