@@ -7,8 +7,8 @@ var app = angular.module('starter', ['ionic'])
 
 app
 .run(function($ionicPlatform) {
-  //PARSE
-  //Must initialize Parse in .run
+
+  //PARSE KEYS
   Parse.initialize("zWsNP9c7MIKltLBGUsROBnSgNX3FMuF88DrZGLM9", "dgJnaETT3dw1lBZOdFLylMubbwx0luSkxUCrS2Bh");
   //App id , JavaScript id
   
@@ -60,12 +60,14 @@ app
     url:'/reset',
     templateUrl: 'templates/reset.html',
     controller: 'reset'
-  })
-  .state('print', {
-    url:'/print',
-    templateUrl: 'templates/print.html',
-    controller: 'print'
-  });
+  }); //make sure to get rid of this semi colon when adding another state
+
+  /* Uncomment the bottom */
+  // .state('print', {
+  //   url:'/print',
+  //   templateUrl: 'templates/print.html',
+  //   controller: 'print'
+  // });
  
  
   $urlRouterProvider.otherwise('/');
@@ -82,7 +84,6 @@ app
       $scope.$apply();
     }
   });
-  
   $scope.$on('$ionicView.beforeEnter', function (e, data) {
     if (data.enableBack) {
         $scope.$root.showMenuIcon = true;
@@ -90,8 +91,6 @@ app
         $scope.$root.showMenuIcon = false;
     }
   });
-
-
   $scope.isUser =function() {
     if ($scope.username === "" || $scope.username === undefined) {
       return false;
@@ -100,7 +99,6 @@ app
       return true;
     }
   }
-
 }])
 
 .controller('userlist', ['$scope', 'ParseSvc', function($scope, ParseSvc){
@@ -117,24 +115,7 @@ app
     console.log($scope.users);
   };
   ParseSvc.getUsers($scope.sucessCallback);
-
-
 }])
-
-
-//code to print text
-.controller('print', ['$scope','ParseSvc', function($scope, ParseSvc){
-  $scope.show_content = false; //this variable is true or false and tells us whether it should be displaying text
-  $scope.printedText = ""; //by default the printedText is empty so nothing will be shown
-
-  $scope.print = function() {
-    $scope.show_content = !$scope.show_content; //invert the value of show_content
-    ParseSvc.printClicked($scope.printedText);
-  }
-}])
-
-
-
 
 .controller('login', ['$scope', '$rootScope','ParseSvc', function($scope, $rootScope, ParseSvc){
   //callback function to set global username on login sucess
@@ -154,8 +135,6 @@ app
   $scope.login = function () {
     ParseSvc.login($scope.user, loginCallback)
   }
-
-
 }])
 
 .controller('signUp', ['$scope','$rootScope','ParseSvc', function($scope, $rootScope, ParseSvc){
@@ -179,28 +158,35 @@ app
     }
     ParseSvc.signUp($scope.user, signupCallback);
   }
-
 }])
+
 .controller('reset', ['$scope','ParseSvc', function($scope, ParseSvc){
   $scope.email = null;
   $scope.resetPassword = function () {
     ParseSvc.resetPassword($scope.email)
   }
-
 }])
+
 .controller('logout', ['$scope','$rootScope','ParseSvc', function($scope, $rootScope, ParseSvc){
   var logoutCallback = function() {
     $rootScope.$broadcast('new username', "");
   }
   $scope.logout = function () {
-    ParseSvc.logout(logoutCallback);
-
-
-   
+    ParseSvc.logout(logoutCallback);  
   }
-
-
 }])
+
+
+.controller('print', ['$scope','ParseSvc', function($scope, ParseSvc){
+  $scope.show_content = false; //this variable is true or false and tells us whether it should be displaying text
+  $scope.printedText = ""; //by default the printedText is empty so nothing will be shown
+
+  $scope.print = function() {
+    $scope.show_content = !$scope.show_content; //invert the value of show_content
+    ParseSvc.printClicked($scope.printedText);
+  }
+}])
+
 
 .factory('ParseSvc', ['$http', function($http) {
 
@@ -299,6 +285,7 @@ app
         data: {}
       });
     },
+
     printClicked: function(text) {
       today = new Date();
       Parse.Analytics.track('print', {
@@ -307,7 +294,7 @@ app
         platform: 'web'
       });
     }
+
   };
-}])
-;
+}]);
 
