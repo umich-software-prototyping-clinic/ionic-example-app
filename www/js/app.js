@@ -8,8 +8,12 @@ var app = angular.module('starter', ['ionic'])
 app
 .run(function($ionicPlatform) {
 
-  //PARSE KEYS
-  Parse.initialize("zWsNP9c7MIKltLBGUsROBnSgNX3FMuF88DrZGLM9", "dgJnaETT3dw1lBZOdFLylMubbwx0luSkxUCrS2Bh");
+  //PARSE KEYS -
+  // NOTE: you can try your example app with these keys but you should change to your own keys once you've created your own app
+  // on back4app.com
+  Parse.initialize("uMpnMeOrQimxwdLY1CYNB2mCZ39tKNfcR4aOKymY", "wv9xliZLnb2WRMKx3AhQ9w22u3jUs4j0meyicbhH");
+
+
   //App id , JavaScript id
   
   $ionicPlatform.ready(function() {
